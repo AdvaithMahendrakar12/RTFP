@@ -41,6 +41,8 @@ const Cart = () => {
     }
   };
 
+  console.log('Cart items:', cartItems); // Debugging line
+
   return (
     <div className="bg-gray-100">
       <div className="container mx-auto py-6">
@@ -55,7 +57,7 @@ const Cart = () => {
             </div>
           </div>
         ) : (
-          <Fragment>
+          <Fragment key={cartItems.length}>
             <div className="max-w-4xl mx-auto bg-white shadow-md sm:rounded-lg overflow-hidden">
               <div className="px-4 py-2 sm:px-6">
                 <h2 className="text-lg font-semibold text-gray-900">Shopping Cart</h2>

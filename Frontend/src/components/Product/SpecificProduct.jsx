@@ -12,7 +12,7 @@ function SpecificProduct() {
     const searchParams = new URLSearchParams(location.search);
     const keyword = searchParams.get('keyword');
     console.log("keyword :" , keyword);
-  const { data, error, isLoading } = useSearchProductsQuery({keyword});
+  const { data, error, isLoading } = useSearchProductsQuery({ keyword });
 
   if (isLoading) {
     return (
@@ -39,7 +39,7 @@ function SpecificProduct() {
       <h1 className="text-3xl font-semibold text-center text-gray-800 mb-4 underline">Products</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4">
         {products && products.map((product) => (
-          <ProductCard key={product.id} product={product} />
+          <ProductCard key={product._id} product={product} />
         ))}
       </div>
     </div>
