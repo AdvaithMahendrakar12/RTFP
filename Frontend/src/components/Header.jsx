@@ -1,24 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import SearchIcon from '@mui/icons-material/Search';
 import { useDispatch, useSelector } from 'react-redux';
 import { logOut, selectUser } from '../reducers/userSlice';
 import { toast } from 'react-toastify';
+import Logo from '../Image/Logo.png'
 
 
-export default function Header({user}) {
-  
+export default function Header({ user }) {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const location = useLocation();
 
     const isLoginPage = location.pathname === '/login';
-  
 
     if (isLoginPage) {
-      return null;
+        return null;
     }
- 
 
     const handleLogout = () => {
         dispatch(logOut());
@@ -32,7 +30,7 @@ export default function Header({user}) {
                 <div className="flex justify-between items-center w-full">
                     <Link to="/" className="flex items-center">
                         <img
-                            src="https://alexharkness.com/wp-content/uploads/2020/06/logo-2.png"
+                            src={Logo}
                             className="h-12"
                             alt="Logo"
                         />
@@ -41,10 +39,11 @@ export default function Header({user}) {
                         <ul className="flex space-x-8 font-medium">
                             <li>
                                 <NavLink
-                                    exact
+                                    end
                                     to="/"
-                                    className="text-gray-700 hover:text-orange-700"
-                                    activeClassName="text-orange-700"
+                                    className={({ isActive }) =>
+                                        isActive ? "text-orange-700" : "text-gray-700 hover:text-orange-700"
+                                    }
                                 >
                                     Home
                                 </NavLink>
@@ -52,8 +51,9 @@ export default function Header({user}) {
                             <li>
                                 <NavLink
                                     to="/products"
-                                    className="text-gray-700 hover:text-orange-700"
-                                    activeClassName="text-orange-700"
+                                    className={({ isActive }) =>
+                                        isActive ? "text-orange-700" : "text-gray-700 hover:text-orange-700"
+                                    }
                                 >
                                     Products
                                 </NavLink>
@@ -61,8 +61,9 @@ export default function Header({user}) {
                             <li>
                                 <NavLink
                                     to="/about"
-                                    className="text-gray-700 hover:text-orange-700"
-                                    activeClassName="text-orange-700"
+                                    className={({ isActive }) =>
+                                        isActive ? "text-orange-700" : "text-gray-700 hover:text-orange-700"
+                                    }
                                 >
                                     About
                                 </NavLink>
@@ -70,8 +71,9 @@ export default function Header({user}) {
                             <li>
                                 <NavLink
                                     to="/contact"
-                                    className="text-gray-700 hover:text-orange-700"
-                                    activeClassName="text-orange-700"
+                                    className={({ isActive }) =>
+                                        isActive ? "text-orange-700" : "text-gray-700 hover:text-orange-700"
+                                    }
                                 >
                                     Contact
                                 </NavLink>

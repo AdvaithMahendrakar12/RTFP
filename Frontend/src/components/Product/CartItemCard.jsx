@@ -8,10 +8,10 @@ const CartItemCard = ({ item, deleteCartItems }) => {
       <div>
         <Link to={`/product/${item.id}`} className="text-blue-600 hover:underline">{item.name}</Link>
         <span className="block text-gray-600">{`Price: ₹${item.price}`}</span>
-        <p onClick={() => deleteCartItems(item.id)} className="text-red-500 cursor-pointer hover:underline">Remove</p>
+        <p onClick={() => deleteCartItems(item.product)} className="text-red-500 cursor-pointer hover:underline">Remove</p>
       </div>
     </div>
   );
-};
+}
 
 export default CartItemCard;

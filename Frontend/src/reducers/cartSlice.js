@@ -22,7 +22,9 @@ const cartSlice = createSlice({
       localStorage.setItem('cartItems', JSON.stringify(state.cartItems));
     },
     removeCartItem: (state, action) => {
+      console.log('Before removal:', JSON.parse(JSON.stringify(state.cartItems)));  // Debugging line
       state.cartItems = state.cartItems.filter(item => item.product !== action.payload);
+      console.log('After removal:', JSON.parse(JSON.stringify(state.cartItems)));  // Debugging line
       localStorage.setItem('cartItems', JSON.stringify(state.cartItems));
     },
     updateCartItemQuantity: (state, action) => {
